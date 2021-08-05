@@ -7,6 +7,10 @@ export default   {
        await  Csrf.getCsrf();
        return  Api.post('login',form);
    },
+   async user(){
+       await  Csrf.getCsrf();
+       return  Api.get('user');
+   },
    async logout(){
        await  Csrf.getCsrf();
        return Api.get('logout');

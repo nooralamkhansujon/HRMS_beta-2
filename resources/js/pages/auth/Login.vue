@@ -91,7 +91,7 @@ export default {
                    .then(({data})=>{
                        console.log(data);
                        localStorage.setItem('auth',true);
-                       this.$router.push({name:"Dashboard"});
+                       this.$router.replace({name:"Dashboard"});
                    })
                    .catch(error=>{
                        console.log(error);

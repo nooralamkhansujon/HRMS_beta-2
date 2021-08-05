@@ -22,6 +22,7 @@ class LoginController extends Controller
         if(Auth::attempt( $logincredentials)){
             $user             = Auth::user();
             $user->last_login = now();
+            $user->save();
             return response()->json(compact('user'));
         }
         else{

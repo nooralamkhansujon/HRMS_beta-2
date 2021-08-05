@@ -1082,7 +1082,7 @@ if (typeof jQuery.validator === 'function') {
 }
 
 // Add validation class to input-group (input group validation fix, currently disabled but will be useful in future)
-/* function inputGroupValidation(el) {
+function inputGroupValidation(el) {
   var validEl,
     invalidEl,
     elem = $(el);
@@ -1095,7 +1095,7 @@ if (typeof jQuery.validator === 'function') {
       invalidEl = elem;
     }
   } else {
-    validEl = elem.find('.form-control:valid, .form-control.is-valid');
+    validEl   = elem.find('.form-control:valid, .form-control.is-valid');
     invalidEl = elem.find('.form-control:invalid, .form-control.is-invalid');
   }
   if (validEl !== undefined) {
@@ -1104,4 +1104,9 @@ if (typeof jQuery.validator === 'function') {
   if (invalidEl !== undefined) {
     invalidEl.closest('.input-group').removeClass('.is-valid is-invalid').addClass('is-invalid');
   }
-} */
+}
+
+$(document).ready(function(){
+    inputGroupValidation($("#new_designation"));
+})
+
