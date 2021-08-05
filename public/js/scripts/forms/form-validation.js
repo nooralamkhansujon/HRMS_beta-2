@@ -98,6 +98,9 @@ $(function () {
         'select-country': {
           required: true
         },
+        'new_designation':{
+          required:true
+        },
         dob: {
           required: true
         },

@@ -1,25 +1,40 @@
 import {createRouter,createWebHistory} from 'vue-router';
 import DashBoard  from '../pages/DashBoard';
+import AddEmployee  from '../pages/employee/AddEmployee.vue';
 
 import Login from '../pages/auth/Login.vue';
 import Register from '../pages/auth/Register.vue';
 
 
 const routes  = [
-  {
-   path:"/dashboard",
-   component:DashBoard,
-   name:"Dashboard",
-   meta:{auth:true},
-   beforeEnter: (to, from, next) => {
-      if(to.meta.auth == true && localStorage.getItem('auth')){
-          next();
-      }
-      else{
-          next({name:"login"})
-      }
-   }
-  },
+    {
+        path:"/dashboard",
+        component:DashBoard,
+        name:"Dashboard",
+        meta:{auth:true},
+        beforeEnter: (to, from, next) => {
+            if(to.meta.auth == true && localStorage.getItem('auth')){
+                next();
+            }
+            else{
+                next({name:"login"})
+            }
+        }
+    },
+    {
+        path:"/employee/add",
+        component:AddEmployee,
+        name:"AddEmployee",
+        meta:{auth:true},
+        beforeEnter: (to, from, next) => {
+            if(to.meta.auth == true && localStorage.getItem('auth')){
+                next();
+            }
+            else{
+                next({name:"login"})
+            }
+        }
+    },
     {
         path:"/",
         redirect:{name:"login"},
@@ -65,6 +80,7 @@ const routes  = [
 
 
 ];
+
 
 const router = createRouter({
     routes,

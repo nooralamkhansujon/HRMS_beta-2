@@ -2,7 +2,7 @@
       <!-- BEGIN: Header-->
     <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
         <div class="navbar-container d-flex content">
-            <div class="bookmark-wrapper d-flex align-items-center">
+            <!-- <div class="bookmark-wrapper d-flex align-items-center">
                 <ul class="nav navbar-nav d-xl-none">
                     <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon"
                                 data-feather="menu"></i></a></li>
@@ -32,7 +32,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <ul class="nav navbar-nav align-items-center ml-auto">
                 <li class="nav-item dropdown dropdown-language"><a class="nav-link dropdown-toggle" id="dropdown-flag"
                         href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
@@ -286,7 +286,7 @@
 
                         <a class="dropdown-item"
                             href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a>
-                        <a class="dropdown-item" @click.prevent="logoutUser" href="page-auth-login-v2.html">
+                        <a class="dropdown-item" @click.prevent="logoutUser" >
                             <i class="mr-50" data-feather="power"></i> Logout
                         </a>
                     </div>
@@ -399,17 +399,15 @@ import User from '../api/User'
 export default {
 
     methods:{
-        logoutUser(event){
-            User.logout()
-                .then(({data})=>{
-                    console.log(data);
-                    localStorage.removeItem('auth');
-                    this.$router.push({name:"login"});
-
-                })
-                .catch(error=>{
-                    console.log(error);
-                })
+        async logoutUser(){
+            try{
+                let response = await User.logout();
+                localStorage.removeItem('auth');
+                this.$router.push({name:"login"});
+            }
+            catch{
+              console.log(error);
+            }
         }
     }
 }
