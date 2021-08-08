@@ -11,12 +11,14 @@
     },
     "devDependencies": {
         "@vue/compiler-sfc": "^3.1.5",
-        "axios": "^0.21",
+        "axios": "^0.21.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "jquery": "^3.6.0",
+        "js-cookie": "^3.0.0",
         "vue": "^3.1.5",
         "vue-loader": "^16.4.1",
         "vue-router": "^4.0.10",
