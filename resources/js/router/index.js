@@ -1,6 +1,7 @@
 import {createRouter,createWebHistory} from 'vue-router';
 import DashBoard  from '../pages/DashBoard';
 import AddEmployee  from '../pages/employee/AddEmployee.vue';
+import ViewEmployee  from '../pages/employee/ViewEmployee.vue';
 
 import Login from '../pages/auth/Login.vue';
 import Register from '../pages/auth/Register.vue';
@@ -12,6 +13,12 @@ const routes  = [
         path:"/dashboard",
         component:DashBoard,
         name:"Dashboard",
+        meta:{requiresAuth:true},
+    },
+    {
+        path:"/employee/list",
+        component:ViewEmployee,
+        name:"ViewEmployee",
         meta:{requiresAuth:true},
     },
     {

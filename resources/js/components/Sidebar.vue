@@ -1,37 +1,52 @@
 <template>
-
-    <!-- BEGIN: Main Menu-->
-    <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
-        <div class="navbar-header">
-            <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto">
-                    <a class="navbar-brand"
-                        href="html/ltr/vertical-menu-template-semi-dark/index.html">
-                        <span class="brand-logo">
-                            <img src="/images/logo/logo.png"/>
-                        </span>
-                        <h2 class="brand-text">HRMS</h2>
-                    </a>
-                </li>
-                <li class="nav-item nav-toggle">
-                      <a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
-                            class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
-                            class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary"
-                            data-feather="disc" data-ticon="disc"></i>
-                        </a>
-                </li>
-            </ul>
-        </div>
-        <div class="shadow-bottom"></div>
-        <div class="main-menu-content">
-            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item">
-                  <router-link class="d-flex align-items-center" :to="{name:'Dashboard'}">
-                           <i
-                            data-feather="home"></i><span class="menu-title text-truncate"
-                            data-i18n="Dashboards">Dashboard</span>
-                  </router-link>
-                    <!-- <ul class="menu-content">
+  <!-- BEGIN: Main Menu-->
+  <div
+    class="main-menu menu-fixed menu-dark menu-accordion menu-shadow"
+    data-scroll-to-active="true"
+  >
+    <div class="navbar-header">
+      <ul class="nav navbar-nav flex-row">
+        <li class="nav-item mr-auto">
+          <a
+            class="navbar-brand"
+            href="html/ltr/vertical-menu-template-semi-dark/index.html"
+          >
+            <span class="brand-logo">
+              <img src="/images/logo/logo.png" />
+            </span>
+            <h2 class="brand-text">HRMS</h2>
+          </a>
+        </li>
+        <li class="nav-item nav-toggle">
+          <a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"
+            ><i
+              class="d-block d-xl-none text-primary toggle-icon font-medium-4"
+              data-feather="x"
+            ></i
+            ><i
+              class="d-none d-xl-block collapse-toggle-icon font-medium-4 text-primary"
+              data-feather="disc"
+              data-ticon="disc"
+            ></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="shadow-bottom"></div>
+    <div class="main-menu-content">
+      <ul
+        class="navigation navigation-main"
+        id="main-menu-navigation"
+        data-menu="menu-navigation"
+      >
+        <li class="nav-item">
+          <router-link class="d-flex align-items-center" :to="{ name: 'Dashboard' }">
+            <i data-feather="home"></i
+            ><span class="menu-title text-truncate" data-i18n="Dashboards"
+              >Dashboard</span
+            >
+          </router-link>
+          <!-- <ul class="menu-content">
                         <li><a class="d-flex align-items-center" href="dashboard-analytics.html"><i
                                     data-feather="circle"></i><span class="menu-item text-truncate"
                                     data-i18n="Analytics">Analytics</span></a>
@@ -41,8 +56,8 @@
                                     data-i18n="eCommerce">eCommerce</span></a>
                         </li>
                     </ul> -->
-                </li>
-                <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
+        </li>
+        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
                             data-feather="file-text"></i><span class="menu-title text-truncate"
                             data-i18n="Invoice">Invoice</span></a>
                     <ul class="menu-content">
@@ -65,25 +80,70 @@
                     </ul>
                 </li> -->
 
-                <li class="nav-item"><a class="d-flex align-items-center" >
-                     <i data-feather="user"></i><span
-                            class="menu-title text-truncate" data-i18n="User">Employee</span></a>
-                    <ul class="menu-content">
-                        <li><router-link :to="{name:'AddEmployee'}" class="d-flex align-items-center"><i
-                                    data-feather="circle"></i><span class="menu-item text-truncate"
-                                    data-i18n="List">Add Employee</span></router-link>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="app-user-view.html"><i
-                                    data-feather="circle"></i><span class="menu-item text-truncate"
-                                    data-i18n="View">View Employee</span></a>
-                        </li>
-                        <!-- <li><a class="d-flex align-items-center" href="app-user-edit.html"><i
+        <li class="nav-item">
+          <a class="d-flex align-items-center">
+            <i data-feather="user"></i
+            ><span class="menu-title text-truncate" data-i18n="User">Employee</span></a
+          >
+          <ul class="menu-content">
+            <li>
+              <router-link :to="{ name: 'AddEmployee' }" class="d-flex align-items-center"
+                ><i data-feather="circle"></i
+                ><span class="menu-item text-truncate" data-i18n="List"
+                  >Add Employee</span
+                ></router-link
+              >
+            </li>
+            <li>
+              <router-link
+                class="d-flex align-items-center"
+                :to="{ name: 'ViewEmployee' }"
+              >
+                <i data-feather="circle"></i>
+                <span class="menu-item text-truncate" data-i18n="View"
+                  >View Employee</span
+                >
+              </router-link>
+            </li>
+            <!-- <li><a class="d-flex align-items-center" href="app-user-edit.html"><i
                                     data-feather="circle"></i><span class="menu-item text-truncate"
                                     data-i18n="Edit">Edit</span></a>
                         </li> -->
-                    </ul>
-                </li>
-                <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="d-flex align-items-center">
+            <i data-feather="file-text"></i
+            ><span class="menu-title text-truncate" data-i18n="User">Department</span></a
+          >
+          <ul class="menu-content">
+            <li>
+              <router-link
+                :to="{ name: 'AddEmployee' }"
+                class="d-flex align-items-center"
+              >
+                <i data-feather="circle"></i>
+                <span class="menu-item text-truncate" data-i18n="List">Add Employee</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                class="d-flex align-items-center"
+                :to="{ name: 'ViewEmployee' }"
+              >
+                <i data-feather="circle"></i>
+                <span class="menu-item text-truncate" data-i18n="View"
+                  >View Employee</span
+                >
+              </router-link>
+            </li>
+            <!-- <li><a class="d-flex align-items-center" href="app-user-edit.html"><i
+                                    data-feather="circle"></i><span class="menu-item text-truncate"
+                                    data-i18n="Edit">Edit</span></a>
+                        </li> -->
+          </ul>
+        </li>
+        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
                             data-feather="file-text"></i><span class="menu-title text-truncate"
                             data-i18n="Pages">Pages</span></a>
                     <ul class="menu-content">
@@ -157,66 +217,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
-                                    class="menu-item text-truncate" data-i18n="Mail Template">Mail Template</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-mail-template/mail-welcome.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Welcome">Welcome</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-mail-template/mail-reset-password.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Reset Password">Reset Password</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-mail-template/mail-verify-email.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Verify Email">Verify Email</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-mail-template/mail-deactivate-account.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Deactivate Account">Deactivate Account</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-mail-template/mail-invoice.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Invoice">Invoice</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-mail-template/mail-promotional.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Promotional">Promotional</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
-                                    class="menu-item text-truncate" data-i18n="Miscellaneous">Miscellaneous</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center" href="page-misc-coming-soon.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Coming Soon">Coming Soon</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-misc-not-authorized.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Not Authorized">Not Authorized</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-misc-under-maintenance.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Maintenance">Maintenance</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-misc-error.html"
-                                        target="_blank"><span class="menu-item text-truncate"
-                                            data-i18n="Error">Error</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+
+
+
                 </li> -->
 
-                <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
+        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
                             data-feather="credit-card"></i><span class="menu-title text-truncate"
                             data-i18n="Card">Card</span><span
                             class="badge badge-light-success badge-pill ml-auto mr-1">New</span></a>
@@ -244,9 +250,7 @@
                     </ul>
                 </li> -->
 
-
-
-                <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="copy"></i><span
+        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="copy"></i><span
                             class="menu-title text-truncate" data-i18n="Form Elements">Form Elements</span></a>
                     <ul class="menu-content">
                         <li><a class="d-flex align-items-center" href="form-input.html"><i
@@ -300,13 +304,11 @@
                     </ul>
                 </li> -->
 
-
-                <!-- <li class=" navigation-header"><span data-i18n="Charts &amp; Maps">Charts &amp; Maps</span><i
+        <!-- <li class=" navigation-header"><span data-i18n="Charts &amp; Maps">Charts &amp; Maps</span><i
                         data-feather="more-horizontal"></i>
                 </li> -->
 
-
-                <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menu"></i><span
+        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menu"></i><span
                             class="menu-title text-truncate" data-i18n="Menu Levels">Menu Levels</span></a>
                     <ul class="menu-content">
                         <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span
@@ -325,17 +327,12 @@
                         </li>
                     </ul>
                 </li> -->
-            </ul>
-        </div>
+      </ul>
     </div>
-    <!-- END: Main Menu-->
-
-
+  </div>
+  <!-- END: Main Menu-->
 </template>
 
-
 <script>
-export default {
-
-}
+export default {};
 </script>

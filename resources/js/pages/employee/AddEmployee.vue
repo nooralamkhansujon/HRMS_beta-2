@@ -279,13 +279,13 @@
                 </div>
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="religion">Religion</label>
-                  <input
-                    v-model="form.religion"
-                    type="text"
-                    id="religion"
-                    class="form-control"
-                    placeholder="Religion"
-                  />
+                  <select class="custom-select" id="religion" v-model="form.religion">
+                    <option selected>Select Religion</option>
+                    <option value="islam">Islam</option>
+                    <option value="hinduism">Hinduism</option>
+                    <option value="buddhism">Buddhism</option>
+                    <option value="christianity">Christianity</option>
+                  </select>
                 </div>
               </div>
               <!-- blood_group and gender -->
@@ -1072,6 +1072,9 @@
 
 <script>
 import Employee from "../../api/Employee.js";
+import Stepper from 'bs-stepper';
+
+
 export default {
   data() {
     return {
@@ -1169,5 +1172,9 @@ export default {
         });
     },
   },
+
+  mounted(){
+     
+  }
 };
 </script>

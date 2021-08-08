@@ -10,7 +10,7 @@ $(function () {
     dt_complex_header_table = $('.dt-complex-header'),
     dt_row_grouping_table = $('.dt-row-grouping'),
     dt_multilingual_table = $('.dt-multilingual'),
-    assetPath = '../../../app-assets/';
+    assetPath = '/';
 
   if ($('body').attr('data-framework') === 'laravel') {
     assetPath = $('body').attr('data-asset-path');
@@ -21,7 +21,7 @@ $(function () {
 
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: assetPath + 'data/table-datatable.json',
+    //   ajax: assetPath + 'data/table-datatable.json',
       columns: [
         { data: 'responsive_id' },
         { data: 'id' },
@@ -270,13 +270,13 @@ $(function () {
       }
     });
     $('div.head-label').html('<h6 class="mb-0">DataTable with Buttons</h6>');
-  }
+      }
 
   // Flat Date picker
   if (dt_date_table.length) {
     dt_date_table.flatpickr({
       monthSelectorType: 'static',
-      dateFormat: 'm/d/Y'
+      dateFormat: 'm-d-Y'
     });
   }
 
