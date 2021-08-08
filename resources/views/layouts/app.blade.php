@@ -92,23 +92,7 @@
     <!-- END: Page JS-->
 
 
-     <!-- BEGIN: Page Vendor JS-->
-     <script src="{{asset('vendors/js/forms/wizard/bs-stepper.min.js')}}"></script>
-     <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
-     <script src="{{asset('vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
-     <!-- END: Page Vendor JS-->
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
      {{-- for date time picker  --}}
@@ -118,7 +102,29 @@
      <script src="{{asset('vendors/js/pickers/pickadate/legacy.js')}}"></script>
      <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
 
-    <script>
+   
+
+
+ <script src="{{asset('js/app.js')}}"></script>
+ <script defer src="{{asset('js/scripts/forms/pickers/form-pickers.js')}}"></script>
+ <script defer src="{{asset('js/scripts/forms/form-select2.js')}}"></script>
+ <!-- BEGIN: Page Vendor JS-->
+ <script src="{{asset('vendors/js/forms/wizard/bs-stepper.min.js')}}"></script>
+ <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
+ <!-- END: Page Vendor JS-->
+<!-- BEGIN: Page JS-->
+
+<script src="{{asset('vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+
+<!-- END: Page JS-->
+
+<!-- BEGIN: Theme JS-->
+<script  src="{{asset('js/core/app-menu.js')}}"></script>
+<script src="{{asset('js/core/app.js')}}"></script>
+<!-- END: Theme JS-->
+<script  src="{{asset('js/scripts/forms/form-wizard.js')}}"></script>
+
+ <script>
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({
@@ -128,20 +134,6 @@
             }
         })
     </script>
-
-
- <script src="{{asset('js/app.js')}}"></script>
- <script src="{{asset('js/scripts/forms/pickers/form-pickers.js')}}"></script>
- <script src="{{asset('js/scripts/forms/form-select2.js')}}"></script>
- <!-- BEGIN: Page JS-->
- <script src="{{asset('js/scripts/forms/form-wizard.js')}}"></script>
- <!-- END: Page JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="{{asset('js/core/app-menu.js')}}"></script>
-<script src="{{asset('js/core/app.js')}}"></script>
-<!-- END: Theme JS-->
-
 </body>
 <!-- END: Body-->
 

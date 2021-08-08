@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LogoutController extends Controller
 {
-    public function logout(){
+    public function logout(Request $request){
         try{
-            Auth::guard('web')->logout();
+           $this->guard()->user()->tokens()->delete();
             return response()->json(['success'=>"You are logout successfully"],200);
         }
         //if some error occured then catch the error and response 500 error
@@ -19,5 +19,9 @@ class LogoutController extends Controller
             return response()->json(['error'=>"Some Error occured for logout".$e->getMessage()],500);
         }
 
+    }
+
+    private function guard(){
+        return Auth::guard('sanctum');
     }
 }

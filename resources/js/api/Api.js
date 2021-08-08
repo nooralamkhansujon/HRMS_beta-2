@@ -1,11 +1,23 @@
 import axios from 'axios';
 
-const Api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/',
+const BaseApi = axios.create({
+    baseURL: 'http://localhost:8000/api/',
 });
 
 
 
-Api.defaults.withCredentials = true;
+let Api   = function(){
+    let token = localStorage.getItem('token');
+    if(token){
+        BaseApi.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    }
+    BaseApi.defaults.headers.common['Content-Type']                 = 'application/json';
+    BaseApi.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
+    BaseApi.defaults.headers.common['X-Requested-With']             = 'XMLHttpRequest';
+    BaseApi.defaults.headers.common['Access-Control-Allow-Headers'] = 'Origin,X-Requested-With,Accept,Authorization,Content-Type';
+    return BaseApi;
+}
+
+
 
 export default Api;
