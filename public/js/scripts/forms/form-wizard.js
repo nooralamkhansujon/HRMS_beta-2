@@ -140,9 +140,9 @@ $(function () {
       .find('.btn-submit')
       .on('click', function () {
         var isValid = $(this).parent().siblings('form').valid();
-        if (isValid) {
-          alert('Submitted..!!');
-        }
+        // if (isValid) {
+        //   alert('Submitted..!!');
+        // }
       });
   }
 
