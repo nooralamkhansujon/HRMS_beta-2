@@ -97,16 +97,23 @@
                   />
                 </div>
                 <div class="form-group col-md-6">
-                  <label class="form-label" for="email">Employee Departement</label>
-                  <input
-                    type="text"
-                    name="employee_department"
-                    id="employee_department"
+                  <label class="form-label" for="email">Employee Department</label>
+
+                  <select
                     class="form-control"
                     v-model="form.employee_department"
-                    placeholder="department"
-                    aria-label="john.doe"
-                  />
+                    name="employee_department"
+                    id="employee_department"
+                  >
+                    <option selected disabled>Select Department</option>
+                    <option
+                      v-for="(department, index) in departmentList"
+                      :key="index"
+                      :value="department.id"
+                    >
+                      {{ department.department_name }}
+                    </option>
+                  </select>
                 </div>
               </div>
               <div class="row">
@@ -222,8 +229,8 @@
                   <input
                     v-model="form.email"
                     type="email"
-                    name="email"
                     id="email"
+                    name="email"
                     class="form-control"
                     placeholder="Enter Email"
                   />
@@ -234,6 +241,7 @@
                     v-model="form.joining_date"
                     type="text"
                     id="joining_date"
+                    name="joining_date"
                     class="form-control flatpickr-basic flatpickr-input"
                     placeholder="YYYY-MM-DD"
                     readonly="readonly"
@@ -298,10 +306,10 @@
                     v-model="form.blood_group"
                   >
                     <option selected="">Select Blood Group</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="AB">AB</option>
-                    <option value="O">O</option>
+                    <option value="A">A+</option>
+                    <option value="B">B+</option>
+                    <option value="AB">AB+</option>
+                    <option value="O">O+</option>
                     <option value="O-">O-</option>
                     <option value="A-">A-</option>
                     <option value="B-">B-</option>
@@ -606,7 +614,7 @@
                   />
                 </div>
                 <div class="col-md-6 form-group">
-                  <label class="form-label" for="refaddress">Reference ref</label>
+                  <label class="form-label" for="refaddress">Reference Address</label>
                   <textarea
                     v-model="form.reference__address"
                     class="form-control"
@@ -792,14 +800,16 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label class="form-label" for="department">Department</label>
-                  <input
+                  <select
                     v-model="form.experience__department"
-                    type="text"
                     id="department"
                     name="department"
                     class="form-control"
-                    placeholder="Department"
-                  />
+                  >
+                    <option>Select Department</option>
+                    <option>Web Development</option>
+                    <option>App Development</option>
+                  </select>
                 </div>
               </div>
               <div class="row">
@@ -1072,8 +1082,9 @@
 
 <script>
 import Employee from "../../api/Employee.js";
-import Stepper from 'bs-stepper';
+import GetDepartment from "../../mixins/GetDepartment.js";
 
+import Stepper from "bs-stepper";
 
 export default {
   data() {
@@ -1157,6 +1168,7 @@ export default {
       },
     };
   },
+  mixins: [GetDepartment],
   methods: {
     AddEmployeeImage(event) {
       console.log(event.target.files[0]);
@@ -1173,8 +1185,87 @@ export default {
     },
   },
 
-  mounted(){
-     
-  }
+  mounted() {
+    this.getDepartment();
+    /// for bs-stepper
+    const BsStepper = document.querySelector(".bs-stepper");
+    const horizontalWizard = document.querySelector(".horizontal-wizard-example");
+    BsStepper.addEventListener("show.bs-stepper", function (event) {
+      console.warn("show.bs-stepper", event);
+      var index = event.detail.indexStep;
+      var numberOfSteps = $(event.target).find(".step").length - 1;
+      var line = $(event.target).find(".step");
+      // The first for loop is for increasing the steps,
+      // the second is for turning them off when going back
+      for (var i = 0; i < index; i++) {
+        line[i].classList.add("crossed");
+
+        for (var j = index; j < numberOfSteps; j++) {
+          line[j].classList.remove("crossed");
+        }
+      }
+      if (event.detail.to == 0) {
+        for (var k = index; k < numberOfSteps; k++) {
+          line[k].classList.remove("crossed");
+        }
+        line[0].classList.remove("crossed");
+      }
+    });
+    var numberedStepper = new Stepper(horizontalWizard);
+    const $form = $(horizontalWizard).find("form");
+    $form.each(function () {
+      var $this = $(this);
+      $this.validate({
+        rules: {
+          username: {
+            required: true,
+          },
+          email: {
+            required: true,
+          },
+          password: {
+            required: true,
+          },
+          address: {
+            required: true,
+          },
+          landmark: {
+            required: true,
+          },
+          country: {
+            required: true,
+          },
+        },
+      });
+    });
+
+    $(horizontalWizard)
+      .find(".btn-next")
+      .each(function () {
+        $(this).on("click", function (e) {
+          var isValid = $(this).parent().siblings("form").valid();
+          if (isValid) {
+            numberedStepper.next();
+          } else {
+            e.preventDefault();
+          }
+        });
+      });
+
+    $(horizontalWizard)
+      .find(".btn-prev")
+      .on("click", function () {
+        numberedStepper.previous();
+      });
+
+    $(horizontalWizard)
+      .find(".btn-submit")
+      .on("click", function () {
+        var isValid = $(this).parent().siblings("form").valid();
+        // if (isValid) {
+        //   alert('Submitted..!!');
+        // }
+      });
+  },
 };
 </script>
