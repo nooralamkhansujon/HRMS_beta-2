@@ -60,14 +60,19 @@
           </div>
         </li>
         <li class="nav-item d-none d-lg-block">
-          <a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a>
+          <a class="nav-link nav-link-style">
+            <!-- <i  data-feather="moon"></i> -->
+            <vue-feather class="ficon" type="moon"></vue-feather>
+          </a>
         </li>
         <li class="nav-item nav-search">
-          <a class="nav-link nav-link-search"
-            ><i class="ficon" data-feather="search"></i
-          ></a>
+          <a class="nav-link nav-link-search">
+            <vue-feather class="ficon" type="search"></vue-feather>
+          </a>
           <div class="search-input">
-            <div class="search-input-icon"><i data-feather="search"></i></div>
+            <div class="search-input-icon">
+              <vue-feather type="search"></vue-feather>
+            </div>
             <input
               class="form-control input"
               type="text"
@@ -75,14 +80,19 @@
               tabindex="-1"
               data-search="search"
             />
-            <div class="search-input-close"><i data-feather="x"></i></div>
+            <div class="search-input-close">
+              <!-- <i data-feather="x"></i> -->
+              <vue-feather type="x"></vue-feather>
+            </div>
             <ul class="search-list search-list-main"></ul>
           </div>
         </li>
         <li class="nav-item dropdown dropdown-cart mr-25">
-          <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"
-            ><i class="ficon" data-feather="shopping-cart"></i
-            ><span class="badge badge-pill badge-primary badge-up cart-item-count"
+          <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown">
+            <!-- <i class="ficon" data-feather="shopping-cart"></i
+            > -->
+            <vue-feather class="ficon" type="shopping-cart"></vue-feather>
+            <span class="badge badge-pill badge-primary badge-up cart-item-count"
               >6</span
             ></a
           >
@@ -102,7 +112,8 @@
                   width="62"
                 />
                 <div class="media-body">
-                  <i class="ficon cart-item-remove" data-feather="x"></i>
+                  <!-- <i  data-feather="x"></i> -->
+                  <vue-feather class="ficon cart-item-remove" type="x"></vue-feather>
                   <div class="media-heading">
                     <h6 class="cart-item-title">
                       <a class="text-body" href="app-ecommerce-details.html">
@@ -127,7 +138,8 @@
                   width="62"
                 />
                 <div class="media-body">
-                  <i class="ficon cart-item-remove" data-feather="x"></i>
+                  <!-- <i class="ficon cart-item-remove" data-feather="x"></i> -->
+                  <vue-feather class="ficon cart-item-remove" type="x"></vue-feather>
                   <div class="media-heading">
                     <h6 class="cart-item-title">
                       <a class="text-body" href="app-ecommerce-details.html">
@@ -152,7 +164,8 @@
                   width="62"
                 />
                 <div class="media-body">
-                  <i class="ficon cart-item-remove" data-feather="x"></i>
+                  <!-- <i class="ficon cart-item-remove" data-feather="x"></i> -->
+                  <vue-feather class="ficon cart-item-remove" type="x"></vue-feather>
                   <div class="media-heading">
                     <h6 class="cart-item-title">
                       <a class="text-body" href="app-ecommerce-details.html">
@@ -177,7 +190,7 @@
                   width="62"
                 />
                 <div class="media-body">
-                  <i class="ficon cart-item-remove" data-feather="x"></i>
+                  <vue-feather class="ficon cart-item-remove" type="x"></vue-feather>
                   <div class="media-heading">
                     <h6 class="cart-item-title">
                       <a class="text-body" href="app-ecommerce-details.html"> iMac Pro</a>
@@ -200,7 +213,7 @@
                   width="62"
                 />
                 <div class="media-body">
-                  <i class="ficon cart-item-remove" data-feather="x"></i>
+                  <vue-feather class="ficon cart-item-remove" type="x"></vue-feather>
                   <div class="media-heading">
                     <h6 class="cart-item-title">
                       <a class="text-body" href="app-ecommerce-details.html">
@@ -230,9 +243,10 @@
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-notification mr-25">
-          <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"
-            ><i class="ficon" data-feather="bell"></i
-            ><span class="badge badge-pill badge-danger badge-up">5</span></a
+          <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown">
+            <!-- <i class="ficon" data-feather="bell"></i> -->
+            <vue-feather class="ficon" type="bell"></vue-feather>
+            <span class="badge badge-pill badge-danger badge-up">5</span></a
           >
           <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
             <li class="dropdown-menu-header">
@@ -315,7 +329,8 @@
                   <div class="media-left">
                     <div class="avatar bg-light-danger">
                       <div class="avatar-content">
-                        <i class="avatar-icon" data-feather="x"></i>
+                        <!-- <i class="avatar-icon" data-feather="x"></i> -->
+                        <vue-feather class="avater-icon" type="x"></vue-feather>
                       </div>
                     </div>
                   </div>
@@ -333,7 +348,8 @@
                   <div class="media-left">
                     <div class="avatar bg-light-success">
                       <div class="avatar-content">
-                        <i class="avatar-icon" data-feather="check"></i>
+                        <!-- <i class="avatar-icon" data-feather="check"></i> -->
+                        <vue-feather class="avater-icon" type="check"></vue-feather>
                       </div>
                     </div>
                   </div>
@@ -351,7 +367,11 @@
                   <div class="media-left">
                     <div class="avatar bg-light-warning">
                       <div class="avatar-content">
-                        <i class="avatar-icon" data-feather="alert-triangle"></i>
+                        <!-- <i class="avatar-icon" data-feather="alert-triangle"></i> -->
+                        <vue-feather
+                          class="avater-icon"
+                          type="alert-triangle"
+                        ></vue-feather>
                       </div>
                     </div>
                   </div>
@@ -395,29 +415,44 @@
             ></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-            <a class="dropdown-item" href="page-profile.html"
-              ><i class="mr-50" data-feather="user"></i> Profile</a
-            ><a class="dropdown-item" href="app-email.html"
-              ><i class="mr-50" data-feather="mail"></i> Inbox</a
-            ><a class="dropdown-item" href="app-todo.html"
-              ><i class="mr-50" data-feather="check-square"></i> Task</a
-            ><a class="dropdown-item" href="app-chat.html"
-              ><i class="mr-50" data-feather="message-square"></i> Chats</a
+            <a class="dropdown-item" href="page-profile.html">
+              <!-- <i class="mr-50" data-feather="user"></i> -->
+              <vue-feather class="mr-50" type="user"></vue-feather>
+              Profile</a
+            ><a class="dropdown-item" href="app-email.html">
+              <!-- <i class="mr-50" data-feather="mail"></i>  -->
+              <vue-feather class="mr-50" type="mail"></vue-feather>
+              Inbox</a
+            ><a class="dropdown-item" href="app-todo.html">
+              <!-- <i class="mr-50" data-feather="check-square"></i> -->
+              <vue-feather class="mr-50" type="check-square"></vue-feather>
+              Task</a
+            ><a class="dropdown-item" href="app-chat.html">
+              <!-- <i class="mr-50" data-feather="message-square"></i> -->
+              <vue-feather class="mr-50" type="message-square"></vue-feather>
+              Chats</a
             >
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="page-account-settings.html"
-              ><i class="mr-50" data-feather="settings"></i>
+            <a class="dropdown-item" href="page-account-settings.html">
+              <!-- <i class="mr-50" data-feather="settings"></i> -->
+              <vue-feather class="mr-50" type="settings"></vue-feather>
               Settings
             </a>
-            <a class="dropdown-item" href="page-pricing.html"
-              ><i class="mr-50" data-feather="credit-card"></i> Pricing
+            <a class="dropdown-item" href="page-pricing.html">
+              <!-- <i class="mr-50" data-feather="credit-card"></i> -->
+              <vue-feather class="mr-50" type="credit-card"></vue-feather>
+              Pricing
             </a>
 
-            <a class="dropdown-item" href="page-faq.html"
-              ><i class="mr-50" data-feather="help-circle"></i> FAQ</a
+            <a class="dropdown-item" href="page-faq.html">
+              <!-- <i class="mr-50" data-feather="help-circle"></i> -->
+              <vue-feather class="mr-50" type="help-circle"></vue-feather>
+              FAQ</a
             >
             <a class="dropdown-item" @click.prevent="logoutUser">
-              <i class="mr-50" data-feather="power"></i> Logout
+              <!-- <i class="mr-50" data-feather="power"></i> -->
+              <vue-feather class="mr-50" type="power"></vue-feather>
+              Logout
             </a>
           </div>
         </li>
@@ -572,8 +607,10 @@
     <li class="auto-suggestion justify-content-between">
       <a class="d-flex align-items-center justify-content-between w-100 py-50">
         <div class="d-flex justify-content-start">
-          <span class="mr-75" data-feather="alert-circle"></span
-          ><span>No results found.</span>
+          <!-- <span class="mr-75" data-feather="alert-circle"></span
+          > -->
+          <vue-feather class="mr-75" type="alert-circle"></vue-feather>
+          <span>No results found.</span>
         </div>
       </a>
     </li>

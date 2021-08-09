@@ -66,8 +66,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     <script src="{{asset('vendors/js/forms/wizard/bs-stepper.min.js')}}"></script>
-    
-   
+    <script src="{{asset('js/feather.min.js')}}"></script>
+
+
 </head>
 <!-- END: Head-->
 
@@ -92,7 +93,7 @@
 
     {{-- for datatables  --}}
     <script src="{{asset('vendors/js/tables/datatable/jquery.dataTables.min.js')}}"></script>
-    {{-- 
+    {{--
     <script src="{{asset('vendors/js/tables/datatable/datatables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('vendors/js/tables/datatable/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('vendors/js/tables/datatable/responsive.bootstrap4.js')}}"></script>
@@ -109,7 +110,14 @@
     <script src="{{asset('vendors/js/charts/apexcharts.min.js')}}"></script>
     <script src="{{asset('vendors/js/extensions/toastr.min.js')}}"></script>
     <!-- END: Page Vendor JS-->
+    {{-- for date time picker  --}}
+    <script src="{{asset('vendors/js/pickers/pickadate/picker.js')}}"></script>
+    <script src="{{asset('vendors/js/pickers/pickadate/picker.date.js')}}"></script>
+    <script src="{{asset('vendors/js/pickers/pickadate/picker.time.js')}}"></script>
+    <script src="{{asset('vendors/js/pickers/pickadate/legacy.js')}}"></script>
+    <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
 
+    <script src="{{asset('vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     {{-- custom app js  --}}
     <script  src="{{asset('js/app.js')}}"></script>
     <!-- BEGIN: Page JS-->
@@ -117,47 +125,30 @@
     <!-- END: Page JS-->
 
 
-
-
-
-     {{-- for date time picker  --}}
-     <script src="{{asset('vendors/js/pickers/pickadate/picker.js')}}"></script>
-     <script src="{{asset('vendors/js/pickers/pickadate/picker.date.js')}}"></script>
-     <script src="{{asset('vendors/js/pickers/pickadate/picker.time.js')}}"></script>
-     <script src="{{asset('vendors/js/pickers/pickadate/legacy.js')}}"></script>
-     <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
-
-
-
-
-
- <script defer src="{{asset('js/scripts/forms/pickers/form-pickers.js')}}"></script>
- <script defer src="{{asset('js/scripts/forms/form-select2.js')}}"></script>
+<script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
+ <script  src="{{asset('js/scripts/forms/pickers/form-pickers.js')}}"></script>
+ <script src="{{asset('js/scripts/forms/form-select2.js')}}"></script>
  <!-- BEGIN: Page Vendor JS-->
 
- <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
  <!-- END: Page Vendor JS-->
 <!-- BEGIN: Page JS-->
 
-<script src="{{asset('vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
 
 <!-- END: Page JS-->
 {{-- <script src="{{asset('js/scripts/tables/table-datatables-basic.js')}}"></script> --}}
 <!-- BEGIN: Theme JS-->
-<script  src="{{asset('js/core/app-menu.js')}}"></script>
-<script src="{{asset('js/core/app.js')}}"></script>
+{{-- <script  src="{{asset('js/core/app-menu.js')}}"></script> --}}
+{{-- <script  src="{{asset('js/core/app.js')}}"></script> --}}
 <!-- END: Theme JS-->
-<script defer src="{{asset('js/scripts/forms/form-wizard.js')}}"></script>
+{{-- <script src="{{asset('js/scripts/components/components-modals.js')}}"></script> --}}
+<script  src="{{asset('js/scripts/forms/form-wizard.js')}}"></script>
 
  <script>
-        $(window).on('load', function () {
-            if (feather) {
-                feather.replace({
-                    width: 14,
-                    height: 14
-                });
-            }
-        })
+        // $(window).on('load', function () {
+            // if (feather) {
+
+            // }
+        // })
     </script>
 </body>
 <!-- END: Body-->

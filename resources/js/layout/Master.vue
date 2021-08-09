@@ -44,15 +44,8 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer.vue";
 import User from "../api/User.js";
-import { useRoute } from "vue-router";
-import { computed } from "vue";
 
 export default {
-  setup() {
-    const route = useRoute();
-    const name = computed(() => route.name);
-    return { name };
-  },
   components: {
     Header,
     Sidebar,
@@ -68,6 +61,11 @@ export default {
       }
     },
   },
+  mounted() {
+    feather.replace({
+      width: 14,
+      height: 14,
+    });
+  },
 };
 </script>
-

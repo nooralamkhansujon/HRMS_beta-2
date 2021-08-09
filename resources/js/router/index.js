@@ -2,6 +2,7 @@ import {createRouter,createWebHistory} from 'vue-router';
 import DashBoard  from '../pages/DashBoard';
 import AddEmployee  from '../pages/employee/AddEmployee.vue';
 import ViewEmployee  from '../pages/employee/ViewEmployee.vue';
+import ViewDepartment  from '../pages/department/ViewDepartment.vue';
 
 import Login from '../pages/auth/Login.vue';
 import Register from '../pages/auth/Register.vue';
@@ -13,6 +14,12 @@ const routes  = [
         path:"/dashboard",
         component:DashBoard,
         name:"Dashboard",
+        meta:{requiresAuth:true},
+    },
+    {
+        path:"/department/list",
+        component:ViewDepartment,
+        name:"ViewDepartment",
         meta:{requiresAuth:true},
     },
     {

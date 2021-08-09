@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DepartmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     ///employee routes
     Route::post('/employees/store',[EmployeeController::class,'store']);
+
+    //departments
+    Route::get('/department/list',[DepartmentController::class,'index']);
 });
 
 
