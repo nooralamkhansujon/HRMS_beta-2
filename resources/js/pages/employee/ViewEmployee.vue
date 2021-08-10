@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="content-header-right text-md-right col-md-5 col-12 d-flex end">
+    <div class="content-header-right text-md-right col-md-5 col-12 d-flex end mb-2">
       <button type="button" class="btn btn-primary waves-effect waves-float waves-light">
         Export Excel
       </button>

@@ -25,6 +25,7 @@
         "vue-feather": "^2.0.0-rc",
         "vue-loader": "^16.4.1",
         "vue-router": "^4.0.10",
+        "vue3-table-lite": "^1.0.6",
         "vuex": "^4.0.2",
         "watch": "^1.0.2"
     }
