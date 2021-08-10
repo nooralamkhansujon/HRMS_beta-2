@@ -32,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //departments
     Route::get('/department/list',[DepartmentController::class,'index']);
+    Route::post('/department/store',[DepartmentController::class,'store']);
 });
 
 

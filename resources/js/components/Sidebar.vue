@@ -48,7 +48,6 @@
         <li class="nav-item">
           <router-link class="d-flex align-items-center" :to="{ name: 'Dashboard' }">
             <vue-feather type="home"></vue-feather>
-
             <span class="menu-title text-truncate" data-i18n="Dashboards">Dashboard</span>
           </router-link>
         </li>
@@ -98,10 +97,21 @@ import initAppMenu from "../core/app-menu.js";
 import initApp from "../core/app.js";
 export default {
   components: {},
-
+  data() {
+    return {
+      links: [],
+    };
+  },
+  watch: {
+    links() {
+      this.hasActiveClass();
+    },
+  },
+  methods: {},
   mounted() {
+    // console.log(document.querySelectorAll(".main-menu li a")[2].contains(".active"));
     initAppMenu();
-    initApp()
+    initApp();
     window.addEventListener("resize", function () {
       // We execute the same script as before
       var vh = window.innerHeight * 0.01;
@@ -110,3 +120,49 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.main-menu.menu-light .navigation > li.active > a.router-link-exact-active {
+  background: linear-gradient(118deg, #7367f0, rgba(115, 103, 240, 0.7));
+  box-shadow: 0 0 10px 1px rgba(115, 103, 240, 0.7);
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 4px;
+}
+/* .main-menu.menu-light .navigation > li ul .active {
+  background : linear-gradient(118deg, #7367F0, rgba(115, 103, 240, 0.7));
+  box-shadow : 0 0 10px 1px rgba(115, 103, 240, 0.7);
+  border-radius : 4px;
+  z-index : 1;
+} */
+
+.main-menu.menu-dark .navigation > li.active > a.router-link-exact-active {
+  background: linear-gradient(118deg, #7367f0, rgba(115, 103, 240, 0.7));
+  box-shadow: 0 0 10px 1px rgba(115, 103, 240, 0.7);
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 4px;
+}
+
+.semi-dark-layout .main-menu-content .navigation-main .nav-item .menu-content li {
+  box-shadow: none;
+  background: #283046;
+}
+.semi-dark-layout .main-menu-content .navigation-main .nav-item .menu-content ul {
+  /* box-shadow: none; */
+  background: transparent;
+}
+
+.semi-dark-layout
+  .main-menu-content
+  .navigation-main
+  .nav-item
+  .menu-content
+  li.active
+  a.router-link-exact-active {
+  background: linear-gradient(118deg, #7367f0, rgba(115, 103, 240, 0.7)) !important;
+}
+
+.semi-dark-layout .main-menu-content .navigation-main .nav-item .menu-content li {
+}
+</style>

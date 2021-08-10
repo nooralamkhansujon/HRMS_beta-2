@@ -22,20 +22,20 @@
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/charts/apexcharts.css')}}">
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/extensions/toastr.min.css')}}"> --}}
     <!-- END: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/tables/datatable/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/tables/datatable/buttons.bootstrap4.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/tables/datatable/rowGroup.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/tables/datatable/rowGroup.bootstrap4.min.css')}}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.dataTables.min.css')}}">
 
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-extended.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/colors.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/components.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/dark-layout.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/bordered-layout.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/semi-dark-layout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/components.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/vendors.min.css')}}">
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('vendors/css/forms/wizard/bs-stepper.min.css')}}"> --}}
@@ -65,8 +65,11 @@
      <link rel="stylesheet" type="text/css" href="{{asset('css/plugins/forms/pickers/form-pickadate.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     <script src="{{asset('vendors/js/forms/wizard/bs-stepper.min.js')}}"></script>
+    <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('js/feather.min.js')}}"></script>
+
 
 
 </head>
@@ -81,11 +84,6 @@
 
 
 
-
-
-
-    <!-- BEGIN: Vendor JS-->
-    <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     {{-- <script src="{{asset('js/jquery.dataTables.min.js')}}"></script> --}}
     <script src="{{asset('vendors/js/vendors.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
@@ -119,7 +117,9 @@
 
     <script src="{{asset('vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     {{-- custom app js  --}}
+    {{-- <script src="{{asset('js/jquery.dataTables.min.js')}}"></script> --}}
     <script  src="{{asset('js/app.js')}}"></script>
+
     <!-- BEGIN: Page JS-->
     <script src="{{asset('js/scripts/pages/dashboard-ecommerce.js')}}"></script>
     <!-- END: Page JS-->

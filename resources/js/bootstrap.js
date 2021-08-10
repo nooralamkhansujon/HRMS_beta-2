@@ -10,6 +10,7 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// window.Jquery = window.$ = require('jquery');
 
 window.colors = {
     solid: {
@@ -34,6 +35,7 @@ window.colors = {
       dark: '#4b4b4b1a'
     }
 };
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
