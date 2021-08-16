@@ -110,6 +110,17 @@ export default {
   mounted() {
     $(".datatables-view").DataTable();
   },
+  data(){
+    return {
+       columns: [
+        { name: "id", text: "Department Id" },
+        { name: "department_name", text: "Department Name" },
+        { name: "status", text: "Status" },
+        { name: "Created At", text: "Created At" },
+        { name: "action", text: "Action" },
+      ],
+    }
+  }
 };
 </script>
 

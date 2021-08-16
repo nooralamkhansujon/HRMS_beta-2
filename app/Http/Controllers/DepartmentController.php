@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DepartmentResource;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use Illuminate\Support\Facades\Validator;
@@ -9,7 +10,7 @@ use Illuminate\Validation\Rule;
 class DepartmentController extends Controller
 {
     public function index(){
-         $departmentList = Department::orderBy('id','desc')->get();
+         $departmentList = DepartmentResource::collection(Department::all());
          return response()->json(compact('departmentList'));
     }
 
