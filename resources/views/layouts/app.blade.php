@@ -64,7 +64,7 @@
      <link rel="stylesheet" type="text/css" href="{{asset('css/plugins/forms/pickers/form-flat-pickr.css')}}">
      <link rel="stylesheet" type="text/css" href="{{asset('css/plugins/forms/pickers/form-pickadate.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     <script src="{{asset('vendors/js/forms/wizard/bs-stepper.min.js')}}"></script>
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
