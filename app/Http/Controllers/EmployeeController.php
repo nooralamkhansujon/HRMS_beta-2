@@ -118,7 +118,7 @@ class EmployeeController extends Controller
         try{
             DB::beginTransaction();
             $employeeData = array(
-                'employee_name'           => $request->input('employee_name'),
+                '.employee_name'           => $request->input('employee_name'),
                 'employee_id'             => Str::random(20),
                 'employee_status'         => $request->input('employee_status') == true ? 1:0,
                 'employee_department'     => $request->input('employee_department'),
