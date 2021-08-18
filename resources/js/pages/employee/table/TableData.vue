@@ -6,10 +6,6 @@ export default {
   },
   data() {
     return {
-      col: {
-        department_name: "",
-        created_at: "",
-      },
     };
   },
   computed: {
@@ -20,14 +16,8 @@ export default {
       return this.entries;
     },
   },
-  inject: ["raw"],
   methods: {
-    editDepartment(row_id) {
-      this.$emit("edit_department", row_id);
-    },
-    deleteDepartment(row_id) {
-      this.$emit("delete_department", row_id);
-    },
+
   },
 };
 </script>
@@ -36,7 +26,7 @@ export default {
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th v-for="th in tHeader" :key="th.name">
+        <th v-for="th in tHeader" :key="th.name" :style="{width:th.name == 'action'?'30%':'5%' }">
           <div class="d-flex justify-content-center">
             <span class="text-dark">{{ th.text }}</span>
             <span>
@@ -49,63 +39,68 @@ export default {
           </div>
         </th>
       </tr>
-      <tr>
-        <td>#</td>
-        <td>
-          <input
-            type="search"
-            placeholder="Filter Name..."
-            v-model="col.department_name"
-          />
-        </td>
-        <td>#</td>
-        <td>
-            <input
-            type="search"
-            placeholder="Filter Created At..."
-            v-model="col.created_at"
-          />
-        </td>
-      </tr>
     </thead>
     <tbody style="font-size: 20px">
       <tr v-for="row in tBody" :key="row.id">
-        <td align="center">{{ row.id }}</td>
-        <td>{{ row.department_name }}</td>
+        <td align="center">{{ row.employee_id?.substr(0,10) }}</td>
+        <td>{{ row.employee_name }}</td>
+        <td>
+            <img width="80" :src="row.employee_image"/>
+        </td>
+        <td>{{ row.employee_department }}</td>
+        <td>{{ row.designation }}</td>
+        <td>{{ row.mobile_number }}</td>
+        <td>{{ row.joining_date }}</td>
         <td>
           <span
             class="badge rounded-pill"
-            :class="[row?.status != 1 ? 'bg-danger' : 'bg-success']"
+            :class="[row?.employee_status != 1 ? 'bg-danger' : 'bg-success']"
           >
-            {{ row?.status == 1 ? "Active" : "Inactive" }}</span
+            {{ row?.employee_status == 1 ? "Active" : "Inactive" }}</span
           >
         </td>
-        <td>{{ row.created_at }}</td>
-        <td>
-          <div class="dropdown">
-            <button
-              type="button"
-              class="btn btn-sm dropdown-toggle hide-arrow"
-              data-toggle="dropdown"
-            >
-              <vue-feather type="more-vertical"></vue-feather>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#" @click.prevent="editDepartment(row.id)">
-                <vue-feather type="edit-2" class="mr-50"></vue-feather>
-                <span>Edit</span>
-              </a>
-              <a
-                class="dropdown-item"
-                href="javascript:void(0);"
-                :id="'delete_department_' + row.id"
-                @click.prevent="deleteDepartment(row.id)"
-              >
-                <vue-feather type="trash" class="mr-50"></vue-feather>
-                <span>Delete</span>
-              </a>
+        <td class="">
+            <div class="dropdown" style="display:inline !important;" >
+                <button
+                type="button"
+                class="btn btn-sm dropdown-toggle hide-arrow"
+                data-toggle="dropdown"
+                >
+                <vue-feather type="more-vertical"></vue-feather>
+                </button>
+                <div class="dropdown-menu" style="display:inline !important;" >
+                <a class="dropdown-item" href="#"
+                @click.prevent="">
+                    <vue-feather type="edit-2" class="mr-50"></vue-feather>
+                    <span>Edit</span>
+                </a>
+                <a
+                    class="dropdown-item"
+                    href="javascript:void(0);"
+                    @click.prevent=""
+                >
+                    <vue-feather type="trash" class="mr-50"></vue-feather>
+                    <span>Delete</span>
+                </a>
+                </div>
             </div>
-          </div>
+         <router-link :to="{name:'EmployeeDetails',params:{id:row.id}}" class="btn btn-sm btn-success ml-1" title="View Employee Details">
+               <vue-feather type="eye"></vue-feather>
+         </router-link>
+
+         <a class="btn btn-sm btn-primary p-1 ml-1"  title="View Experience Details">
+              experience
+         </a>
+         <a class="btn btn-sm btn-info p-1 ml-1"  title="View Experience Details">
+              Education
+         </a>
+         <a class="btn btn-sm  p-1 ml-1" style="background:#7FBA43;color:#fff;"  title="View Employee Training">
+              Training
+         </a>
+          <a class="btn btn-sm btn-warning p-1 ml-1"  title="View Promotion Details">
+            promotion
+         </a>
+
         </td>
       </tr>
     </tbody>

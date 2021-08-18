@@ -35,64 +35,7 @@
       <div class="row">
         <div class="col-12">
           <div class="card basic-datatable-card">
-            <!-- <table
-              class="table hover stripe compact order-column"
-              id="datatables-view-department"
-            >
-              <thead>
-                <tr>
-                  <th>Department Id</th>
-                  <th>Department Name</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(department, index) in departmentList" :key="index">
-                  <td>#{{ department?.id }}</td>
-                  <td v-text="department?.department_name"></td>
-                  <td>
-                    <span
-                      class="badge rounded-pill"
-                      :class="[department?.status != 1 ? 'bg-danger' : 'bg-success']"
-                    >
-                      {{ department?.status == 1 ? "Active" : "Inactive" }}</span
-                    >
-                  </td>
-                  <td>
-                    <div class="dropdown">
-                      <button
-                        type="button"
-                        class="btn btn-sm dropdown-toggle hide-arrow"
-                        data-toggle="dropdown"
-                      >
-                        <vue-feather type="more-vertical"></vue-feather>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a
-                          class="dropdown-item"
-                          href="#"
-                          :id="'edit_department_' + department.id"
-                          @click.prevent="editDepartment(department.id)"
-                        >
-                          <vue-feather type="edit-2" class="mr-50"></vue-feather>
-                          <span>Edit</span>
-                        </a>
-                        <a
-                          class="dropdown-item"
-                          href="javascript:void(0);"
-                          :id="'delete_department_' + department.id"
-                          @click.prevent="deleteDepartment(department.id)"
-                        >
-                          <vue-feather type="trash" class="mr-50"></vue-feather>
-                          <span>Delete</span>
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table> -->
+
             <!-- show entities select  and search input  -->
             <div class="d-flex justify-content-between my-3 mx-3">
               <div class="d-flex justify-content-center">
@@ -527,23 +470,19 @@ export default {
       this.paginateData(this.getCurrentDepartment());
     },
     paginateData(data) {
-      this.allPages = $array.pages(data, this.currentEntries); //get pages according current entries
+     //get pages according current entries
+      this.allPages = $array.pages(data, this.currentEntries);
       //paginates entries from total list
       this.filteredEntries = $array.paginate(data, this.currentPage, this.currentEntries);
     },
     getCurrentDepartment() {
-      return this.searchEntries.length == 0 ? this.departmentList : this.searchEntries;
+      return this.searchEntries.length === 0 && this.searchInput.length === 0  ? this.departmentList : this.searchEntries;
     },
     async getDepartment() {
       try {
         const { data } = await DepartmentApi.departmentList();
         this.departmentList = data.departmentList;
-        this.filteredEntries = $array.paginate(
-          this.departmentList,
-          this.currentPage,
-          this.currentEntries
-        );
-        this.allPages = $array.pages(this.departmentList, this.currentEntries);
+        this.paginateData(this.departmentList);
       } catch (error) {
         console.log(error);
       }

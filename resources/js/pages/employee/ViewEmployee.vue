@@ -22,105 +22,202 @@
     </div>
   </div>
   <div class="content-body">
-    <!-- Basic table -->
-    <section id="basic-datatable">
-      <div class="row">
-        <div class="col-12">
-          <div class="card basic-datatable-card">
-            <table class="datatables-view table hover stripe compact order-column">
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Date</th>
-                  <th>Salary</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                  <th>Action</th>
-                  <th>id</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Date</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>id</td>
-                  <td>Employee Name</td>
-                  <td>Email</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Action</td>
-                </tr>
-                <tr>
-                  <td>id</td>
-                  <td>Employee Name</td>
-                  <td>Email</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Action</td>
-                </tr>
-                <tr>
-                  <td>id</td>
-                  <td>Employee Name</td>
-                  <td>Email</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Date</td>
-                  <td>Salary</td>
-                  <td>Status</td>
-                  <td>Action</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+     <div class="d-flex justify-content-between my-3 mx-3">
+        <div class="d-flex justify-content-center">
+            <span style="font-size: 20px" class="mx-1">Show</span>
+            <select
+                v-model.trim="currentEntries"
+                @change="paginateEntries()"
+                class="form-control px:width-15"
+            >
+                <option v-for="sh in showEntries" :key="sh" :value="sh">
+                {{ sh }}
+                </option>
+            </select>
+            <span class="ml-1" style="font-size: 20px">entries</span>
         </div>
-      </div>
-    </section>
-    <!--/ Basic table -->
+        <div class="end:flex">
+            <input
+                type="search"
+                class="input px:width-25"
+                placeholder="Search"
+                v-model="searchInput"
+                @keyup="searchEvent"
+            />
+        </div>
+    </div>
+     <table-data
+        :entries="filteredEntries"
+        :columns="columns"
+        class="basic-datatable-card"
+    ></table-data>
+    <div class="between:flex my-3 mx-3">
+        <div style="font-size: 20px; font-weight: bold" class="text-secondary">
+        Show {{ showInfo.from }} to {{ showInfo.to }} of {{ showInfo.of }} entries
+        </div>
+        <div class="end:flex">
+            <ul class="pagination:nav">
+                <li :class="['nav-item', { disabled: currentPage == 1 }]">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        @click.prevent="(currentPage = 1), paginateEntries()"
+                    >
+                        First
+                   </a>
+                </li>
+                <li :class="['nav-item', { disabled: currentPage == 1 }]">
+                    <a
+                        href="#"
+                        class="nav-link"
+                        @click.prevent="
+                        currentPage < 1 ? (currentPage = 1) : (currentPage -= 1),
+                            paginateEntries()
+                        "
+                    >
+                    Prev
+                   </a>
+                </li>
+                <li
+                class="nav-item"
+                v-for="pagi in showPagination"
+                :key="pagi"
+                :class="{ ellipsis: pagi === '...', active: pagi === currentPage }"
+                >
+                <a href="#" @click.prevent="paginateEvent(pagi)" class="nav-link">{{
+                    pagi
+                }}</a>
+                </li>
+                <li :class="['nav-item', { disabled: currentPage == allPages }]">
+                <a
+                    href="#"
+                    class="nav-link"
+                    @click.prevent="
+                    currentPage > allPages
+                        ? (currentPage = allPages)
+                        : (currentPage += 1),
+                        paginateEntries()
+                    "
+                >
+                    Next
+                </a>
+                </li>
+                <li :class="['nav-item', { disabled: currentPage == allPages }]">
+                <a
+                    href="#"
+                    class="nav-link"
+                    @click.prevent="(currentPage = allPages), paginateEntries()"
+                >
+                    Last
+                </a>
+                </li>
+            </ul>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-import "jquery/dist/jquery.min.js";
-import "datatables.net-dt/js/dataTables.dataTables";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
-import $ from "jquery";
+
+import TableData from './table/TableData.vue';
+import { $array } from "alga-js";
+import EmployeeApi from '../../api/Employee';
 export default {
-  mounted() {
-    $(".datatables-view").DataTable();
+  components:{
+    TableData
   },
   data(){
     return {
        columns: [
-        { name: "id", text: "Department Id" },
-        { name: "department_name", text: "Department Name" },
-        { name: "status", text: "Status" },
-        { name: "Created At", text: "Created At" },
+        { name: "employee_id", text: "Employee Id" },
+        { name: "employee_name", text: "Employee Name" },
+         { name: "employee_image", text: "Employee Image" },
+        { name: "employee_department", text: "Employee Department" },
+        { name: "designation", text: "Designation" },
+        { name: "mobile_number", text: "Mobile Number" },
+        { name: "joining_date", text: "Joining Date" },
+        { name: "employee_status", text: "Employee status" },
         { name: "action", text: "Action" },
       ],
+      employeeList:[],
+      filteredEntries:[],
+      showEntries:[5,10,15,25,50,100,200],
+      currentEntries:10,
+      currentPage:1,
+      allPages:1,
+      searchEntries:[],
+      searchInput:""
     }
-  }
+  },
+  computed:{
+    showPagination() {
+      return $array.pagination(this.allPages, this.currentPage, 2);
+    },
+    showInfo(){
+        return $array.pageInfo(
+        this.getCurrentEmployeeList(),
+        this.currentPage,
+        this.currentEntries
+      );
+      //=> { from: 11, to: 12, of: 12 }
+    },
+    getColumns(){
+       return this.columns.map(column=>{
+           return column.name;
+       })
+    }
+
+   },
+  methods:{
+    async getEmployees(){
+        try{
+            const {data} = await EmployeeApi.getEmployees();
+            this.employeeList = data.employees;
+            this.paginateData(this.employeeList);
+        }catch(error){
+           console.log(error);
+        }
+    },
+
+    ///paginate entries for paginate data
+    paginateEntries(){
+        //check if searchInput is given
+        if(this.searchInput.length >=1 ){
+            // this.searchEntries = $array.search(this.searchInput)(this.employeeList);
+            this.searchEntries = $array.searchBy(this.searchInput)(this.employeeList, this.getColumns)
+            this.paginateData(this.searchEntries);
+        }
+        //else get value from original employee list and then paginate
+        else{
+            this.paginateData(this.employeeList);
+        }
+
+    },
+    //paginate entries.......
+    paginateData(data) {
+         //paginates entries from total list
+        this.filteredEntries = $array.paginate(data, this.currentPage, this.currentEntries);
+        //get pages according current entries
+        this.allPages = $array.pages(data, this.currentEntries);
+
+    },
+    paginateEvent(page){
+        this.currentPage  = page;
+        this.paginateEntries();
+    },
+    searchEvent(){
+        this.currentPage = 1;
+        this.paginateEntries();
+    },
+    getCurrentEmployeeList(){
+       return this.searchEntries.length == 0 && this.searchInput.length == 0 ? this.employeeList:this.searchEntries;
+    }
+
+  },
+   mounted() {
+      this.getEmployees();
+      this.getColumns
+   },
 };
 </script>
 

@@ -20,7 +20,7 @@ class CreateEducationTable extends Migration
             $table->string('institute');
             $table->string('country');
             $table->string('result_type');
-            $table->decimal('result');
+            $table->decimal('result',40,2);
             $table->string('passing_year');
             $table->string('duration');
             $table->text('achievement');

@@ -19,14 +19,14 @@ class CreateEmployeesTable extends Migration
             $table->tinyInteger('employee_status')->default(1);
             $table->string('employee_department');
             $table->string('designation');
-            $table->decimal('basic_salary');
-            $table->decimal('gross_salary');
+            $table->decimal('basic_salary',50,2);
+            $table->decimal('gross_salary',50,2);
             $table->string('tin')->unique();
             $table->string('employee_image');
             $table->string('mobile_number');
             $table->string('emergency_mobile_number');
             $table->string('email');
-            $table->datetime('joining_date');
+            $table->date('joining_date');
             $table->string('father_name');
             $table->string('mother_name');
             $table->string('nid_number');

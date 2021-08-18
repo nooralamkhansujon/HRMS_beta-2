@@ -10,17 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable,HasApiTokens;
-
-    /**
+    protected $fillable = ['username','first_name','last_name','email','password','last_login','is_active','role_id'];   /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,4 +35,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function teachers(){
+        return $this->belongsToMany(Teacher::class,"students_teachers",'student_id','teacher_id');
+
+    }
 }

@@ -21,8 +21,8 @@ class CreateExperiencesTable extends Migration
             $table->string('position_held');
             $table->text('responsibility');
             $table->string('experience_area');
-            $table->datetime('from_date');
-            $table->datetime('to_date');
+            $table->date('from_date');
+            $table->date('to_date');
             $table->text('company_address');
             $table->timestamps();
         });

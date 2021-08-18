@@ -83,7 +83,7 @@
               <h5 class="mb-0">Employee Details</h5>
               <small class="text-muted">Enter Employee Details.</small>
             </div>
-            <form>
+            <form enctype="multipart/form-data">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="employee_name">Employee Name</label>
@@ -124,8 +124,8 @@
                   <input
                     type="text"
                     v-model="form.employee_designation"
-                    name="employee_designation"
                     id="employee_designation"
+                    name="employee_designation"
                     class="form-control"
                     placeholder="Enter Designation"
                   />
@@ -137,6 +137,7 @@
                       type="checkbox"
                       v-model="form.employee_status"
                       id="employee_status"
+                      name="employee_status"
                       tabindex="3"
                     />
                     <label class="custom-control-label" for="employee_status">
@@ -144,9 +145,23 @@
                     </label>
                   </div>
                 </div>
+
               </div>
               <!-- basic salary and gross salary -->
               <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="employee_type">
+                      Employee Type
+                    </label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      v-model="form.employee_type"
+                      id="employee_type"
+                      name="employee_type"
+                      tabindex="3"
+                    />
+                </div>
                 <div class="form-group col-md-6">
                   <label class="form-label" for="basic_salary">Basic Salary</label>
                   <input
@@ -158,6 +173,11 @@
                     placeholder="Enter Basic Salary"
                   />
                 </div>
+
+              </div>
+              <!-- end of basic salary and gross salary fields -->
+
+              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="gross_salary">gross Salary</label>
                   <input
@@ -169,10 +189,6 @@
                     placeholder="Enter Gross Salary"
                   />
                 </div>
-              </div>
-              <!-- end of basic salary and gross salary fields -->
-
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="tin">Tin Number</label>
                   <input
@@ -184,6 +200,10 @@
                     placeholder="Enter Tin Number"
                   />
                 </div>
+
+              </div>
+              <!-- mobile number and emergency mobile number  -->
+              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="employee_image">Employee Image</label>
                   <input
@@ -194,13 +214,10 @@
                     class="form-control"
                   />
                 </div>
-              </div>
-              <!-- mobile number and emergency mobile number  -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="mobile_number"> Mobile Number </label>
                   <input
-                    type="text"
+                    type="integer"
                     v-model="form.mobile_number"
                     name="mobile_number"
                     id="mobile_number"
@@ -208,12 +225,16 @@
                     placeholder="Enter mobile number"
                   />
                 </div>
+
+              </div>
+              <!-- email and Joining date -->
+              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="emergency_mobile_number"
                     >Emergency Mobile Number</label
                   >
                   <input
-                    type="text"
+                    type="integer"
                     v-model="form.emergency_mobile_number"
                     name="emergency_mobile_number"
                     id="emergency_mobile_number"
@@ -221,9 +242,6 @@
                     placeholder="Emergency mobile number"
                   />
                 </div>
-              </div>
-              <!-- email and Joining date -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="email"> Email </label>
                   <input
@@ -235,21 +253,21 @@
                     placeholder="Enter Email"
                   />
                 </div>
+
+              </div>
+              <!-- father and mother -->
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="joining_date">Joining Date</label>
                   <input
                     v-model="form.joining_date"
                     type="text"
-                    id="joining_date"
                     name="joining_date"
                     class="form-control flatpickr-basic flatpickr-input"
                     placeholder="YYYY-MM-DD"
                     readonly="readonly"
                   />
                 </div>
-              </div>
-              <!-- father and mother -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="father_name"> Father Name </label>
                   <input
@@ -261,19 +279,21 @@
                     placeholder="Enter Father Name"
                   />
                 </div>
+
+              </div>
+              <!-- nid_number and religion -->
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="mother_name">Mother Name</label>
                   <input
                     v-model="form.mother_name"
                     type="text"
                     id="mother_name"
+                    name="mother_name"
                     class="form-control"
                     placeholder="Mother Name"
                   />
                 </div>
-              </div>
-              <!-- nid_number and religion -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="nid"> National id Number </label>
                   <input
@@ -285,9 +305,12 @@
                     placeholder="National Id Number"
                   />
                 </div>
+              </div>
+              <!-- blood_group and gender -->
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="religion">Religion</label>
-                  <select class="custom-select" id="religion" v-model="form.religion">
+                  <select class="custom-select" id="religion" name="religion" v-model="form.religion">
                     <option selected>Select Religion</option>
                     <option value="islam">Islam</option>
                     <option value="hinduism">Hinduism</option>
@@ -295,14 +318,12 @@
                     <option value="christianity">Christianity</option>
                   </select>
                 </div>
-              </div>
-              <!-- blood_group and gender -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="blood_group"> Blood Group </label>
                   <select
                     class="custom-select"
                     id="blood_group"
+                    name="blood_group"
                     v-model="form.blood_group"
                   >
                     <option selected="">Select Blood Group</option>
@@ -316,18 +337,18 @@
                     <option value="AB-">AB-</option>
                   </select>
                 </div>
+              </div>
+              <!-- blood_group and gender -->
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="gender">Gender</label>
-                  <select v-model="form.gender" class="custom-select" id="gender">
+                  <select v-model="form.gender" class="custom-select" name="gender" id="gender">
                     <option selected="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
-              </div>
-              <!-- blood_group and gender -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="bank_name"> Bank Name </label>
                   <input
@@ -339,6 +360,9 @@
                     placeholder="Bank Name"
                   />
                 </div>
+              </div>
+              <!-- blood_group and gender -->
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="bank_account_number"
                     >Bank Account Number</label
@@ -352,9 +376,6 @@
                     placeholder="Bank Name"
                   />
                 </div>
-              </div>
-              <!-- blood_group and gender -->
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="permanent_address"
                     >Permanent Address</label
@@ -369,6 +390,10 @@
                   ></textarea>
                 </div>
 
+
+              </div>
+
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="present_address">present Address</label>
                   <textarea
@@ -381,9 +406,6 @@
                   >
                   </textarea>
                 </div>
-              </div>
-              <!-- weekly off day and education level -->
-              <div class="row">
                 <div class="form-group col-md-6">
                   <label class="form-label" for="weekly_off_day"> Weekly Off day </label>
                   <select
@@ -403,6 +425,9 @@
                   </select>
                 </div>
 
+
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="education_level"
                     >Last Education Level</label
@@ -410,14 +435,12 @@
                   <input
                     v-model="form.education__eduction_level"
                     type="text"
-                    name="education_level"
-                    id="education_level"
+                    name="education__eduction_level"
+                    id="education__eduction_level"
                     class="form-control"
                     placeholder="Last Education Level"
                   />
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="major_group"
                     >Education Major Group</label
@@ -425,13 +448,14 @@
                   <input
                     v-model="form.education__major_group"
                     type="text"
-                    name="major_group"
-                    id="major_group"
+                    name="education__major_group"
+                    id="education__major_group"
                     class="form-control"
                     placeholder="Education Major Group"
                   />
                 </div>
-
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="result_type"
                     >Education Result Type</label
@@ -439,25 +463,25 @@
                   <input
                     v-model="form.education__result_type"
                     type="text"
-                    name="result_type"
-                    id="result_type"
+                    name="education__result_type"
+                    id="education__result_type"
                     class="form-control"
                     placeholder="Education Result Type"
                   />
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="result">Education Result</label>
                   <input
                     v-model="form.education__result"
                     type="text"
-                    name="result"
-                    id="result"
+                    name="education__result"
+                    id="education__result"
                     class="form-control"
                     placeholder="Education Result"
                   />
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="passing_year"
                     >Education Passing Year
@@ -465,25 +489,56 @@
                   <input
                     v-model="form.education__passing_year"
                     type="text"
-                    name="passing_year"
-                    id="passing_year"
+                    name="education__passing_year"
+                    id="education__passing_year"
                     class="form-control"
                     placeholder="Education Passing Year"
                   />
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="fp-range">Education Duration</label>
                   <input
                     v-model="form.education__duration"
                     type="text"
                     id="fp-range"
-                    name="duration"
+                    name="education__duration"
                     class="form-control"
                     placeholder="Education Duration"
                   />
                 </div>
+              </div>
+              <!-- relative  -->
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="education__country"
+                    >Education Country
+                  </label>
+                  <input
+                    v-model="form.education__country"
+                    class="form-control"
+                    id="education__country"
+                    name="education__country"
+                    rows="3"
+                    placeholder="Education Country"
+                  >
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="education__institute"
+                    >Education Institute
+                  </label>
+                  <input
+                    v-model="form.education__institute"
+                    class="form-control"
+                    id="education__institute"
+                    name="education__institute"
+                    rows="3"
+                    placeholder="Education Institute"
+                  >
+                </div>
+
+
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="achievement"
                     >Education Achievement
@@ -491,57 +546,60 @@
                   <textarea
                     v-model="form.education__achievement"
                     class="form-control"
-                    id="achievement"
-                    name="achievement"
+                    id="education__achievement"
+                    name="education__achievement"
                     rows="3"
                     placeholder="Achievement"
                   >
                   </textarea>
                 </div>
-              </div>
-              <!-- relative  -->
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="name">Relative Name </label>
                   <input
                     v-model="form.relative__name"
                     type="text"
-                    name="relative_name"
-                    id="relative_name"
+                    name="relative__name"
+                    id="relative__name"
                     class="form-control"
                     placeholder="Relative Name"
                   />
                 </div>
+
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="relation_type">Relative Type</label>
                   <input
                     v-model="form.relative__relation_type"
                     type="text"
-                    name="relation_type"
-                    id="relation_type"
+                    name="relative__relation_type"
+                    id="relative__relation_type"
                     class="form-control"
                     placeholder="Relation Type"
                   />
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="occupation">Relative Occuption </label>
                   <input
                     v-model="form.relative__occupation"
                     type="text"
-                    name="occupation"
-                    id="occupation"
+                    name="relative__occupation"
+                    id="relative__occupation"
                     class="form-control"
                     placeholder="Relative Occupation"
                   />
                 </div>
+
+
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="relgender">Relative Gender</label>
                   <select
                     v-model="form.relative__gender"
                     class="custom-select"
-                    id="relgender"
+                    id="relative__gender"
+                    name="relative__gender"
                   >
                     <option selected="">Select Gender</option>
                     <option value="male">Male</option>
@@ -549,18 +607,20 @@
                     <option value="other">Other</option>
                   </select>
                 </div>
-              </div>
-              <div class="row">
+
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="reladdress">Relative Address</label>
                   <textarea
                     v-model="form.relative__address"
-                    name="reladdress"
-                    id="reladdress"
+                    name="relative__address"
+                    id="relative__address"
                     class="form-control"
                     placeholder="Relative Address"
                   ></textarea>
                 </div>
+
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="relcontact_number"
                     >Relative Contact Number</label
@@ -568,25 +628,26 @@
                   <input
                     v-model="form.relative__contact_number"
                     type="text"
-                    name="relcontact_number"
-                    id="relcontact_number"
+                    name="relative__contact_number"
+                    id="relative__contact_number"
                     class="form-control"
                     placeholder="Relative Contact Number"
                   />
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="name">Reference Name</label>
                   <input
                     v-model="form.reference__name"
                     type="text"
-                    name="name"
-                    id="name"
+                    name="reference__name"
+                    id="reference__name"
                     class="form-control"
                     placeholder="Reference Name"
                   />
                 </div>
+
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="organization"
                     >Reference Organization</label
@@ -594,49 +655,49 @@
                   <input
                     v-model="form.reference__organization"
                     type="text"
-                    name="organization"
-                    id="organization"
+                    name="reference__organization"
+                    id="reference__organization"
                     class="form-control"
                     placeholder="Reference Organization"
                   />
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="refrelation">Reference Relation</label>
                   <input
                     v-model="form.reference__relation"
                     type="text"
-                    name="relation"
-                    id="refrelation"
+                    name="reference__relation"
+                    id="reference__relation"
                     class="form-control"
                     placeholder="Reference Relation"
                   />
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="refaddress">Reference Address</label>
                   <textarea
                     v-model="form.reference__address"
                     class="form-control"
-                    id="refaddress"
-                    name="refaddress"
+                    id="reference__address"
+                    name="reference__address"
                     rows="3"
                     placeholder="Reference address"
                   ></textarea>
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="refemail">Reference Email</label>
                   <input
                     v-model="form.reference__email"
                     type="text"
-                    name="refemail"
-                    id="refemail"
+                    name="reference__email"
+                    id="reference__email"
                     class="form-control"
                     placeholder="Reference Email"
                   />
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="form-label" for="refphone_number"
                     >Reference Phone Number</label
@@ -644,8 +705,8 @@
                   <input
                     v-model="form.reference__phone_number"
                     type="text"
-                    name="refphone_number"
-                    id="refphone_number"
+                    name="reference__phone_number"
+                    id="reference__phone_number"
                     class="form-control"
                     placeholder="Reference Phone Number"
                   />
@@ -676,8 +737,8 @@
                   <input
                     v-model="form.training__training_title"
                     type="text"
-                    name="training_title"
-                    id="training_title"
+                    name="training__training_title"
+                    id="training__training_title"
                     class="form-control"
                     placeholder="Training Title"
                   />
@@ -689,8 +750,8 @@
                   <input
                     v-model="form.training__topics_covered"
                     type="text"
-                    name="topics_covered"
-                    id="topics_covered"
+                    name="training__topics_covered"
+                    id="training__topics_covered"
                     class="form-control"
                     placeholder=" Topics Covered"
                   />
@@ -702,8 +763,8 @@
                   <input
                     v-model="form.training__institute"
                     type="text"
-                    name="institute"
-                    id="institute"
+                    name="training__institute"
+                    id="training__institute"
                     class="form-control"
                     placeholder="Training Institute"
                   />
@@ -726,8 +787,8 @@
                   <input
                     v-model="form.training__country"
                     type="text"
-                    name="country"
-                    id="country"
+                    name="training__country"
+                    id="training__country"
                     class="form-control"
                     placeholder="Training Country"
                   />
@@ -737,8 +798,8 @@
                   <input
                     v-model="form.training__location"
                     type="text"
-                    name="location"
-                    id="location"
+                    name="training__location"
+                    id="training__location"
                     class="form-control"
                     placeholder="Training Location"
                   />
@@ -750,8 +811,8 @@
                   <input
                     v-model="form.training__training_year"
                     type="text"
-                    name="training_year"
-                    id="training_year"
+                    name="training__training_year"
+                    id="training__training_year"
                     class="form-control"
                     placeholder="Training Year"
                   />
@@ -761,7 +822,7 @@
                   <input
                     v-model="form.training__duration"
                     type="text"
-                    name="duration"
+                    name="training__duration"
                     class="form-control flatpickr-range flatpickr-input active"
                     placeholder="YYYY-MM-DD to YYYY-MM-DD"
                     readonly="readonly"
@@ -792,8 +853,8 @@
                   <input
                     v-model="form.experience__company_name"
                     type="text"
-                    id="company_name"
-                    name="company_name"
+                    id="experience__company_name"
+                    name="experience__company_name"
                     class="form-control"
                     placeholder="Enter Company Name"
                   />
@@ -802,8 +863,8 @@
                   <label class="form-label" for="department">Department</label>
                   <select
                     v-model="form.experience__department"
-                    id="department"
-                    name="department"
+                    id="experience__department"
+                    name="experience__department"
                     class="form-control"
                   >
                     <option>Select Department</option>
@@ -818,8 +879,8 @@
                   <input
                     v-model="form.experience__position_held"
                     type="text"
-                    id="position_held"
-                    name="position_held"
+                    id="experience__position_held"
+                    name="experience__position_held"
                     class="form-control"
                     placeholder="Position Held"
                   />
@@ -828,8 +889,8 @@
                   <label class="form-label" for="responsibility">Responsibility</label>
                   <textarea
                     v-model="form.experience__responsibility"
-                    id="responsibility"
-                    name="responsibility"
+                    id="experience__responsibility"
+                    name="experience__responsibility"
                     class="form-control"
                     placeholder="Responsibility"
                   >
@@ -841,8 +902,8 @@
                   <label class="form-label" for="experience_area">Experience Area</label>
                   <textarea
                     v-model="form.experience__experience_area"
-                    id="experience_area"
-                    name="experience_area"
+                    id="experience__experience_area"
+                    name="experience__experience_area"
                     class="form-control"
                     placeholder="Experience Area"
                   ></textarea>
@@ -853,7 +914,7 @@
                     v-model="form.experience__from_date"
                     type="text"
                     class="form-control flatpickr-basic flatpickr-input"
-                    name="from_date"
+                    name="experience__from_date"
                     placeholder="YYYY-MM-DD"
                     readonly="readonly"
                   />
@@ -866,7 +927,7 @@
                     v-model="form.experience__to_date"
                     type="text"
                     class="form-control flatpickr-basic flatpickr-input"
-                    name="to_date"
+                    name="experience__to_date"
                     placeholder="YYYY-MM-DD"
                     readonly="readonly"
                   />
@@ -875,8 +936,8 @@
                   <label class="form-label" for="company_address">Company Address</label>
                   <textarea
                     v-model="form.experience__company_address"
-                    id="company_address"
-                    name="company_address"
+                    id="experience__company_address"
+                    name="experience__company_address"
                     class="form-control"
                     placeholder="Company Address"
                   ></textarea>
@@ -906,8 +967,8 @@
                   <input
                     v-model="form.promotion__employee_number"
                     type="text"
-                    id="promemployee_name"
-                    name="promemployee_name"
+                    id="promotion__employee_number"
+                    name="promotion__employee_number"
                     class="form-control"
                     placeholder="Employee Name"
                   />
@@ -917,7 +978,7 @@
                   <input
                     v-model="form.promotion__promotion_date"
                     type="text"
-                    name="promdate"
+                    name="promotion__promotion_date"
                     class="form-control flatpickr-basic flatpickr-input"
                     placeholder="YYYY-MM-DD"
                     readonly="readonly"
@@ -1085,7 +1146,9 @@ import Employee from "../../api/Employee.js";
 import GetDepartment from "../../mixins/GetDepartment.js";
 
 import Stepper from "bs-stepper";
-
+import Form from './utilities/FormData';
+import ResetForm from './utilities/ResetForm';
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
@@ -1093,7 +1156,8 @@ export default {
         employee_name: "",
         employee_status: "",
         employee_department: "",
-        designation: "",
+        employee_designation: "",
+        employee_type:"",
         basic_salary: "",
         gross_salary: "",
         tin: "",
@@ -1104,7 +1168,7 @@ export default {
         joining_date: "",
         father_name: "",
         mother_name: "",
-        nid_number: "",
+        nid: "",
         religion: "",
         blood_group: "",
         gender: "",
@@ -1166,23 +1230,36 @@ export default {
         // promotion__refference_no:"",
         // promotion__approved:"",
       },
+      errors:{}
     };
   },
   mixins: [GetDepartment],
   methods: {
     AddEmployeeImage(event) {
-      console.log(event.target.files[0]);
-      this.form.employee_image = event.target.files[0];
+        this.form.employee_image = event.target.files[0];
+        console.log(this.form.employee_image);
     },
     AddEmployee() {
-      Employee.addEmployee(this.form)
+      const formData = Form(this.form);
+      Employee.addEmployee(formData)
         .then((response) => {
           console.log(response);
+          ResetForm(this.form);
+            Swal.fire(
+                    'Success',
+                    response.data.success,
+                    'success'
+            );
         })
         .catch((error) => {
-          console.log(error.response);
+            console.log(error.response);
+            if(error?.response?.status === 422 ){
+                this.errors = error.response.data.errors;
+                console.log(this.errors);
+            }
         });
     },
+
   },
 
   mounted() {
@@ -1217,23 +1294,155 @@ export default {
       var $this = $(this);
       $this.validate({
         rules: {
-          username: {
+          employee_name: {
+            required: true,
+          },
+          employee_department: {
+            required: true,
+          },
+          employee_designation: {
+            required: true,
+          },
+          basic_salary: {
+            required: true,
+          },
+          gross_salary: {
+            required: true,
+          },
+          tin: {
+            required: true,
+          },
+          employee_image: {
+            required: true,
+          },
+          mobile_number: {
+            required: true,
+          },
+          emergency_mobile_number: {
             required: true,
           },
           email: {
             required: true,
           },
-          password: {
+          joining_date: {
             required: true,
           },
-          address: {
+          father_name: {
             required: true,
           },
-          landmark: {
+          mother_name: {
             required: true,
           },
-          country: {
+          nid: {
             required: true,
+          },
+          religion: {
+            required: true,
+          },
+          blood_group: {
+            required: true,
+          },
+          gender: {
+            required: true,
+          },
+          bank_name: {
+            required: true,
+          },
+          bank_account_number: {
+            required: true,
+          },
+          weekly_off_day: {
+            required: true,
+          },
+          permanent_address: {
+            required: true,
+          },
+          present_address: {
+            required: true,
+          },
+          education__eduction_level:{
+              required:true
+          },
+          education__institute:{
+              required:true
+          },
+          education__country:{
+              required:true
+          },
+          education__result_type:{
+              required:true
+          },
+          education__result:{
+              required:true
+          },
+          education__passing_year:{
+              required:true
+          },
+          education__duration:{
+              required:true
+          },
+          education__achievement:{
+              required:true
+          },
+          training__training_title:{
+              required:true
+          },
+          training__topics_covered:{
+              required:true
+          },
+          training__institute:{
+              required:true
+          },
+          training__training_type:{
+              required:true
+          },
+          training__country:{
+              required:true
+          },
+          training__location:{
+              required:true
+          },
+          training__training_year:{
+              required:true
+          },
+          training__duration:{
+              required:true
+          },
+          relative__name:{
+              required:true
+          },
+          relative__relation_type:{
+              required:true
+          },
+          relative__occupation:{
+              required:true
+          },
+          relative__gender:{
+              required:true
+          },
+          relative__address:{
+              required:true
+          },
+          relative__contact_number:{
+              required:true
+          },
+          reference__name:{
+              required:true
+          },
+          reference__organization:{
+              required:true,
+          },
+          reference__relation:{
+              required:true,
+          },
+          reference__address:{
+              required:true
+          },
+          reference__email:{
+              required:true
+          },
+          reference__phone_number:{
+              required:true
           },
         },
       });
@@ -1254,11 +1463,7 @@ export default {
 
     $(horizontalWizard)
       .find(".btn-prev")
-      .on("click", function () {
-        numberedStepper.previous();
-      });
 
-    $(horizontalWizard)
       .find(".btn-submit")
       .on("click", function () {
         var isValid = $(this).parent().siblings("form").valid();

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Relative extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','employee_id','relation_type','occupation','gender','address','contact_number'];
 }

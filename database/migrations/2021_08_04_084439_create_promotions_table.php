@@ -15,20 +15,20 @@ class CreatePromotionsTable extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('employee_id');
-            $table->string('employee_name');
-            $table->datetime('promotion_date');
-            $table->string('previous_designation');
-            $table->string('new_designation');
-            $table->string('previous_grade');
-            $table->string('new_degree');
-            $table->datetime('previous_promotion_date');
-            $table->decimal('previous_basic');
-            $table->decimal('new_basic');
-            $table->decimal('previous_gross');
-            $table->decimal('increment_amount');
-            $table->datetime('effect_date');
-            $table->string('refference_no')->unique();
+            $table->unsignedInteger('employee_id')->nullable();
+            $table->string('employee_name')->nullable();
+            $table->date('promotion_date')->nullable();
+            $table->string('previous_designation')->nullable();
+            $table->string('new_designation')->nullable();
+            $table->string('previous_grade')->nullable();
+            $table->string('new_degree')->nullable();
+            $table->date('previous_promotion_date')->nullable();
+            $table->decimal('previous_basic',50,2)->nullable();
+            $table->decimal('new_basic',50,2)->nullable();
+            $table->decimal('previous_gross',50,2)->nullable();
+            $table->decimal('increment_amount',50,2)->nullable();
+            $table->date('effect_date')->nullable();
+            $table->string('refference_no')->unique()->nullable();
             $table->tinyInteger('approved')->default(0);
             $table->timestamps();
         });

@@ -15,7 +15,3 @@ app.use(store);
 app.use(router);
 app.mount('#app');
 
-// require('./core/jquery.dataTables.min.js');
-
-// require('./core/app-menu.js');
-// require('./core/app.js');

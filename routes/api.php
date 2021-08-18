@@ -29,6 +29,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     ///employee routes
     Route::post('/employees/store',[EmployeeController::class,'store']);
+    Route::get('/employees/list',[EmployeeController::class,'index']);
+    Route::get('/employees/{id}',[EmployeeController::class,'show']);
 
     //departments
     Route::get('/department/list',[DepartmentController::class,'index']);

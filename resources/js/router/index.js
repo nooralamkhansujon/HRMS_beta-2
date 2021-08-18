@@ -2,6 +2,7 @@ import {createRouter,createWebHistory} from 'vue-router';
 import DashBoard  from '../pages/DashBoard';
 import AddEmployee  from '../pages/employee/AddEmployee.vue';
 import ViewEmployee  from '../pages/employee/ViewEmployee.vue';
+import EmployeeDetails  from '../pages/employee/EmployeeDetails.vue';
 import ViewDepartment  from '../pages/department/ViewDepartment.vue';
 
 import Login from '../pages/auth/Login.vue';
@@ -26,6 +27,13 @@ const routes  = [
         path:"/employee/list",
         component:ViewEmployee,
         name:"ViewEmployee",
+        meta:{requiresAuth:true},
+    },
+    {
+        path:"/employee/details/:id",
+        component:EmployeeDetails,
+        name:"EmployeeDetails",
+        props:true,
         meta:{requiresAuth:true},
     },
     {
